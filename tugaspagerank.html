@@ -1,0 +1,1326 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tugas Text Rank &amp; Page Rank &#8212; Azriel Akbar Hasananda Putra (190411100192)</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Tugas Mining Data Twitter" href="notebooks.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/azriel.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Azriel Akbar Hasananda Putra (190411100192)</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Tentang Buku
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="notebooks.html">
+   <strong>
+    Tugas Mining Data Twitter
+   </strong>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <strong>
+    Tugas Text Rank &amp; Page Rank
+   </strong>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://colab.research.google.com/drive/14T8KeKEtvXiDPyqBzJl4r1opREzvkonU?authuser=1#scrollTo=cz0_eaKO5cJY/github/azrielakbar/webmining/blob/master/docs/tugaspagerank.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/azrielakbar/webmining"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/azrielakbar/webmining/issues/new?title=Issue%20on%20page%20%2Ftugaspagerank.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/tugaspagerank.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    Tugas Text Rank &amp; Page Rank
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#textrank">
+     TextRank
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pagerank">
+     PageRank
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dokumen-berita">
+   <strong>
+    Dokumen Berita
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proses-parsing-dokumen-menjadi-beberapa-kalimat">
+   <strong>
+    Proses Parsing Dokumen Menjadi Beberapa Kalimat
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proses-ekstraksi-dokumen-menjadi-teks">
+     <strong>
+      Proses Ekstraksi Dokumen Menjadi Teks
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#library-yang-digunakan">
+     Library yang digunakan
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proses-parsing-teks-menjadi-kalimat">
+     <strong>
+      Proses Parsing Teks Menjadi Kalimat
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Library yang digunakan
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Tugas Text Rank & Page Rank</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   <strong>
+    Tugas Text Rank &amp; Page Rank
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#textrank">
+     TextRank
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pagerank">
+     PageRank
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dokumen-berita">
+   <strong>
+    Dokumen Berita
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proses-parsing-dokumen-menjadi-beberapa-kalimat">
+   <strong>
+    Proses Parsing Dokumen Menjadi Beberapa Kalimat
+   </strong>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proses-ekstraksi-dokumen-menjadi-teks">
+     <strong>
+      Proses Ekstraksi Dokumen Menjadi Teks
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#library-yang-digunakan">
+     Library yang digunakan
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proses-parsing-teks-menjadi-kalimat">
+     <strong>
+      Proses Parsing Teks Menjadi Kalimat
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Library yang digunakan
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-text-rank-page-rank">
+<h1><strong>Tugas Text Rank &amp; Page Rank</strong><a class="headerlink" href="#tugas-text-rank-page-rank" title="Permalink to this headline">#</a></h1>
+<hr class="docutils" />
+<section id="textrank">
+<h2>TextRank<a class="headerlink" href="#textrank" title="Permalink to this headline">#</a></h2>
+</section>
+<p>TextRank adalah algoritma peringkat berbasis grafik untuk memproses teks. TextRank menghasilkan ekstraksi kalimat sebagai ringkasan. Salah satu kelebihan dari algoritma ini, tidak diperlukannya pelatihan menggunakan data training pada algoritma yang digunakan. (sumber : <a class="reference external" href="https://www.neliti.com/publications/237552/penerapan-algoritma-textrank-untuk-automatic-summarization-pada-dokumen-berbahas#:~:text=TextRank%20adalah%20algoritma%20peringkat%20berbasis,training%20pada%20algoritma%20yang%20digunakan.)">https://www.neliti.com/publications/237552/penerapan-algoritma-textrank-untuk-automatic-summarization-pada-dokumen-berbahas#:~:text=TextRank adalah algoritma peringkat berbasis,training pada algoritma yang digunakan.)</a></p>
+<section id="pagerank">
+<h2>PageRank<a class="headerlink" href="#pagerank" title="Permalink to this headline">#</a></h2>
+</section>
+<p>Algoritma PageRank atau algoritma Google diperkenalkan oleh Lary Page, salah satu pendiri Google. Ini pertama kali digunakan untuk menentukan peringkat halaman web di mesin pencari Google. Saat ini, semakin banyak digunakan di berbagai bidang, misalnya dalam peringkat pengguna di media sosial dll. Yang menarik dengan algoritma PageRank adalah bagaimana memulai dari masalah yang kompleks dan berakhir dengan solusi yang sangat sederhana. (sumber : <a class="reference external" href="https://towardsdatascience.com/pagerank-algorithm-fully-explained-dc794184b4af">https://towardsdatascience.com/pagerank-algorithm-fully-explained-dc794184b4af</a>)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dokumen-berita">
+<h1><strong>Dokumen Berita</strong><a class="headerlink" href="#dokumen-berita" title="Permalink to this headline">#</a></h1>
+<p>Untuk dokumen berita yang digunakan diambil dari website liputan 6 dengan link seperti berikut
+<a class="reference external" href="https://www.liputan6.com/news/read/5093558/ini-jadwal-sidang-ferdy-sambo-cs-terkait-kasus-kematian-brigadir-j">https://www.liputan6.com/news/read/5093558/ini-jadwal-sidang-ferdy-sambo-cs-terkait-kasus-kematian-brigadir-j</a></p>
+<p>kemudian dijadikan file .pdf dengan nama DokumenBerita.pdf</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="proses-parsing-dokumen-menjadi-beberapa-kalimat">
+<h1><strong>Proses Parsing Dokumen Menjadi Beberapa Kalimat</strong><a class="headerlink" href="#proses-parsing-dokumen-menjadi-beberapa-kalimat" title="Permalink to this headline">#</a></h1>
+<p>Pada tugas ini data awal berupa dokumen yang akan di parsing atau di pecah menjadi beberapa kalimat.</p>
+<section id="proses-ekstraksi-dokumen-menjadi-teks">
+<h2><strong>Proses Ekstraksi Dokumen Menjadi Teks</strong><a class="headerlink" href="#proses-ekstraksi-dokumen-menjadi-teks" title="Permalink to this headline">#</a></h2>
+<p>berikut ini merupakan library yang digunakan untuk mengekstrak dokumen format .pdf</p>
+<p><strong>Library PyPDF2</strong>
+adalah library PDF python murni gratis dan open-source yang mampu memisahkan, menggabungkan, memotong, dan mengubah halaman file PDF. Itu juga dapat menambahkan data khusus, opsi tampilan, dan kata sandi ke file PDF. PyPDF2 juga dapat mengambil teks dan metadata dari PDF. (sumber : <a class="reference external" href="https://pypi.org/project/PyPDF2/">https://pypi.org/project/PyPDF2/</a>) <br>
+<strong>Library Doc2txt</strong>
+adalah library Python yang fokus mengekstrak teks berkualitas tinggi yang dengan memperbaiki kesalahan sebanyak mungkin. doc2text juga secara drastis meningkatkan ekstraksi teks dari gambar dengan memperbaiki resolusi, area teks (pangkas), dan kemiringan.
+(sumber : <a class="reference external" href="https://pypi.org/project/doc2text/">https://pypi.org/project/doc2text/</a>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install PyPDF2
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting PyPDF2
+  Downloading PyPDF2-2.11.1-py3-none-any.whl (220 kB)
+?25l
+     |█▌                              | 10 kB 22.8 MB/s eta 0:00:01
+     |███                             | 20 kB 22.9 MB/s eta 0:00:01
+     |████▌                           | 30 kB 27.1 MB/s eta 0:00:01
+     |██████                          | 40 kB 8.5 MB/s eta 0:00:01
+     |███████▍                        | 51 kB 7.4 MB/s eta 0:00:01
+     |█████████                       | 61 kB 8.7 MB/s eta 0:00:01
+     |██████████▍                     | 71 kB 7.0 MB/s eta 0:00:01
+     |████████████                    | 81 kB 7.7 MB/s eta 0:00:01
+     |█████████████▍                  | 92 kB 6.2 MB/s eta 0:00:01
+     |██████████████▉                 | 102 kB 6.5 MB/s eta 0:00:01
+     |████████████████▍               | 112 kB 6.5 MB/s eta 0:00:01
+     |█████████████████▉              | 122 kB 6.5 MB/s eta 0:00:01
+     |███████████████████▎            | 133 kB 6.5 MB/s eta 0:00:01
+     |████████████████████▉           | 143 kB 6.5 MB/s eta 0:00:01
+     |██████████████████████▎         | 153 kB 6.5 MB/s eta 0:00:01
+     |███████████████████████▉        | 163 kB 6.5 MB/s eta 0:00:01
+     |█████████████████████████▎      | 174 kB 6.5 MB/s eta 0:00:01
+     |██████████████████████████▊     | 184 kB 6.5 MB/s eta 0:00:01
+     |████████████████████████████▎   | 194 kB 6.5 MB/s eta 0:00:01
+     |█████████████████████████████▊  | 204 kB 6.5 MB/s eta 0:00:01
+     |███████████████████████████████▎| 215 kB 6.5 MB/s eta 0:00:01
+     |████████████████████████████████| 220 kB 6.5 MB/s 
+?25hRequirement already satisfied: typing-extensions&gt;=3.10.0.0 in /usr/local/lib/python3.7/dist-packages (from PyPDF2) (4.1.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: PyPDF2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed PyPDF2-2.11.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install docx2txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting docx2txt
+  Downloading docx2txt-0.8.tar.gz (2.8 kB)
+Building wheels for collected packages: docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for docx2txt (setup.py) ... ?25l?25hdone
+  Created wheel for docx2txt: filename=docx2txt-0.8-py3-none-any.whl size=3980 sha256=a7b62ac5a5b9d3e96efd09761d5e68434eaf7175092fa63cdace57bb7dacb56b
+  Stored in directory: /root/.cache/pip/wheels/b7/20/b2/473e3aea9a0c0d3e7b2f7bd81d06d0794fec12752733d1f3a8
+Successfully built docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: docx2txt
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed docx2txt-0.8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="kn">import</span> <span class="nn">docx2txt</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membuka file .pdf</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;DokumenBerita.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">FileNotFoundError</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">5600</span><span class="n">f298b415</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;DokumenBerita.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;DokumenBerita.pdf&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdfReader</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileObj</span><span class="p">)</span>
+<span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hasil ekstraksi teks dari dokumen .pdf</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">document</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Ini Jadwal Sidang Ferdy Sambo Cs Terkait Kasus Kematian Brigadir J . \nLiputan6.com, Jakarta - Pengadilan Negeri Jakarta Selatan (PN Jaksel) telah mengatur jadwal \npersidangan untuk  Ferdy Sambo  Cs. Sidang pidana umum ini diketahui terkait dengan \nkematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.  \nHumas Pengadilan Negeri Jakarta Selatan Djumyanto mengatakan, untuk sidang terha dap \npara tersangka ini nantinya dilakukan dengan waktu yang berbeda -beda. Baik \nkasus  pembunuhan berencana  maupun  Obstruction of Justice  (OJ).  \nDiketahui, Penyidik Bareskrim Polri telah menye rahkan sebanyak 11 orang tersangka atas \nkematian Brigadir J alias Nofryansyah Yoshua Hutabarat, ke Kejaksaan Agung, pada Rabu 5 \nOktober 2022. Dari belasan orang tersebut, dibagi menjadi dua kluster yakni pembunuhan \nberencana dan  Obstruction of Justice  (OJ) . \nMereka yang masuk dalam kluster pembunuhan berencana yakni Ferdy Sambo, Putri \nCandrawathi, Bripka Ricky Rizal, Bharada Richard Elieze dan Kuat Ma’ruf.  \nAdapun tersangka lain kluster  Obstruction of Justice  atau menghalang -halangi penyidikan \nyakni Ferdy Sam bo, Brigjen Hendra Kurniawan, Kombes Agus Nurpatria, AKBP Arif Rahman \nArifin, Kompol Chuck Putranto, Kompol Baiquni Wibowo dan AKP Irfan Widyanto.  \n &#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="library-yang-digunakan">
+<h2>Library yang digunakan<a class="headerlink" href="#library-yang-digunakan" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="proses-parsing-teks-menjadi-kalimat">
+<h2><strong>Proses Parsing Teks Menjadi Kalimat</strong><a class="headerlink" href="#proses-parsing-teks-menjadi-kalimat" title="Permalink to this headline">#</a></h2>
+<p><strong>Library nltk.tokenize.punkt</strong>
+Punkt Sentence Tokenizer adalah library python yang berfungsi membagi teks menjadi daftar kalimat dengan menggunakan algoritma yang tidak diawasi untuk membangun model untuk kata-kata singkatan, kolokasi, dan kata-kata yang memulai kalimat. Itu harus dilatih pada banyak koleksi plaintext dalam bahasa target sebelum dapat digunakan.(sumber : <a class="reference external" href="https://www.nltk.org/api/nltk.tokenize.punkt.html">https://www.nltk.org/api/nltk.tokenize.punkt.html</a>) <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize.punkt</span> <span class="kn">import</span> <span class="n">PunktSentenceTokenizer</span>
+<span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">):</span>
+    <span class="c1"># Kita memecahnya menggunakan  PunktSentenceTokenizer</span>
+    <span class="c1"># </span>
+    <span class="n">doc_tokenizer</span> <span class="o">=</span> <span class="n">PunktSentenceTokenizer</span><span class="p">()</span>
+    
+    <span class="c1"># metode tokenize() memanggil dokument kita</span>
+    <span class="c1"># sebagai input dan menghasilkan daftar kalimat dalam dokumen</span>
+    
+    <span class="c1"># sentences_list adalah daftar masing masing kalimat dari dokumen yang ada.</span>
+    <span class="n">sentences_list</span> <span class="o">=</span> <span class="n">doc_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">sentences_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hasil dari parsing teks menjadi beberapa kalimat</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences_list</span> <span class="o">=</span> <span class="n">tokenize</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sentences_list</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------        ------&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------        ------
+Ini Jadwal Sidang Ferdy Sambo Cs Terkait Kasus Kematian Brigadir J . 
+Liputan6.com, Jakarta - Pengadilan Negeri Jakarta Selatan (PN Jaksel) telah mengatur jadwal 
+persidangan untuk  Ferdy Sambo  Cs.
+------        ------
+Sidang pidana umum ini diketahui terkait dengan 
+kematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.
+------        ------
+Humas Pengadilan Negeri Jakarta Selatan Djumyanto mengatakan, untuk sidang terha dap 
+para tersangka ini nantinya dilakukan dengan waktu yang berbeda -beda.
+------        ------
+Baik 
+kasus  pembunuhan berencana  maupun  Obstruction of Justice  (OJ).
+------        ------
+Diketahui, Penyidik Bareskrim Polri telah menye rahkan sebanyak 11 orang tersangka atas 
+kematian Brigadir J alias Nofryansyah Yoshua Hutabarat, ke Kejaksaan Agung, pada Rabu 5 
+Oktober 2022.
+------        ------
+Dari belasan orang tersebut, dibagi menjadi dua kluster yakni pembunuhan 
+berencana dan  Obstruction of Justice  (OJ) .
+------        ------
+Mereka yang masuk dalam kluster pembunuhan berencana yakni Ferdy Sambo, Putri 
+Candrawathi, Bripka Ricky Rizal, Bharada Richard Elieze dan Kuat Ma’ruf.
+------        ------
+Adapun tersangka lain kluster  Obstruction of Justice  atau menghalang -halangi penyidikan 
+yakni Ferdy Sam bo, Brigjen Hendra Kurniawan, Kombes Agus Nurpatria, AKBP Arif Rahman 
+Arifin, Kompol Chuck Putranto, Kompol Baiquni Wibowo dan AKP Irfan Widyanto.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kalimat = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)))</span>
+<span class="n">sentences_list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kalimat =  8
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ini Jadwal Sidang Ferdy Sambo Cs Terkait Kasus Kematian Brigadir J . \nLiputan6.com, Jakarta - Pengadilan Negeri Jakarta Selatan (PN Jaksel) telah mengatur jadwal \npersidangan untuk  Ferdy Sambo  Cs.&#39;,
+ &#39;Sidang pidana umum ini diketahui terkait dengan \nkematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.&#39;,
+ &#39;Humas Pengadilan Negeri Jakarta Selatan Djumyanto mengatakan, untuk sidang terha dap \npara tersangka ini nantinya dilakukan dengan waktu yang berbeda -beda.&#39;,
+ &#39;Baik \nkasus  pembunuhan berencana  maupun  Obstruction of Justice  (OJ).&#39;,
+ &#39;Diketahui, Penyidik Bareskrim Polri telah menye rahkan sebanyak 11 orang tersangka atas \nkematian Brigadir J alias Nofryansyah Yoshua Hutabarat, ke Kejaksaan Agung, pada Rabu 5 \nOktober 2022.&#39;,
+ &#39;Dari belasan orang tersebut, dibagi menjadi dua kluster yakni pembunuhan \nberencana dan  Obstruction of Justice  (OJ) .&#39;,
+ &#39;Mereka yang masuk dalam kluster pembunuhan berencana yakni Ferdy Sambo, Putri \nCandrawathi, Bripka Ricky Rizal, Bharada Richard Elieze dan Kuat Ma’ruf.&#39;,
+ &#39;Adapun tersangka lain kluster  Obstruction of Justice  atau menghalang -halangi penyidikan \nyakni Ferdy Sam bo, Brigjen Hendra Kurniawan, Kombes Agus Nurpatria, AKBP Arif Rahman \nArifin, Kompol Chuck Putranto, Kompol Baiquni Wibowo dan AKP Irfan Widyanto.&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+<span class="c1">#Menghitung frekuensi kata dalam dokumen</span>
+<span class="n">cv</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">cv_matrix</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 44)	1
+  (0, 46)	2
+  (0, 102)	1
+  (0, 39)	2
+  (0, 99)	2
+  (0, 27)	2
+  (0, 105)	1
+  (0, 50)	1
+  (0, 53)	1
+  (0, 21)	1
+  (0, 60)	1
+  (0, 26)	1
+  (0, 47)	2
+  (0, 82)	1
+  (0, 71)	1
+  (0, 101)	1
+  (0, 87)	1
+  (0, 48)	1
+  (0, 103)	1
+  (0, 65)	1
+  (0, 85)	1
+  (0, 109)	1
+  (1, 44)	1
+  (1, 102)	1
+  (1, 105)	1
+  :	:
+  (7, 59)	1
+  (7, 11)	1
+  (7, 66)	1
+  (7, 40)	1
+  (7, 84)	1
+  (7, 98)	1
+  (7, 20)	1
+  (7, 22)	1
+  (7, 41)	1
+  (7, 58)	1
+  (7, 55)	1
+  (7, 4)	1
+  (7, 73)	1
+  (7, 5)	1
+  (7, 8)	1
+  (7, 93)	1
+  (7, 9)	1
+  (7, 56)	2
+  (7, 25)	1
+  (7, 89)	1
+  (7, 13)	1
+  (7, 111)	1
+  (7, 6)	1
+  (7, 45)	1
+  (7, 112)	1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Banyaknya kosa kata = &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">((</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya kosa kata =  116
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;kosa kata = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kosa kata =  [&#39;11&#39; &#39;2022&#39; &#39;adapun&#39; &#39;agung&#39; &#39;agus&#39; &#39;akbp&#39; &#39;akp&#39; &#39;alias&#39; &#39;arif&#39; &#39;arifin&#39;
+ &#39;atas&#39; &#39;atau&#39; &#39;baik&#39; &#39;baiquni&#39; &#39;bareskrim&#39; &#39;beda&#39; &#39;belasan&#39; &#39;berbeda&#39;
+ &#39;berencana&#39; &#39;bharada&#39; &#39;bo&#39; &#39;brigadir&#39; &#39;brigjen&#39; &#39;bripka&#39; &#39;candrawathi&#39;
+ &#39;chuck&#39; &#39;com&#39; &#39;cs&#39; &#39;dalam&#39; &#39;dan&#39; &#39;dap&#39; &#39;dari&#39; &#39;dengan&#39; &#39;dibagi&#39;
+ &#39;diketahui&#39; &#39;dilakukan&#39; &#39;djumyanto&#39; &#39;dua&#39; &#39;elieze&#39; &#39;ferdy&#39; &#39;halangi&#39;
+ &#39;hendra&#39; &#39;humas&#39; &#39;hutabarat&#39; &#39;ini&#39; &#39;irfan&#39; &#39;jadwal&#39; &#39;jakarta&#39; &#39;jaksel&#39;
+ &#39;justice&#39; &#39;kasus&#39; &#39;ke&#39; &#39;kejaksaan&#39; &#39;kematian&#39; &#39;kluster&#39; &#39;kombes&#39; &#39;kompol&#39;
+ &#39;kuat&#39; &#39;kurniawan&#39; &#39;lain&#39; &#39;liputan6&#39; &#39;ma&#39; &#39;masuk&#39; &#39;maupun&#39; &#39;mengatakan&#39;
+ &#39;mengatur&#39; &#39;menghalang&#39; &#39;menjadi&#39; &#39;menye&#39; &#39;mereka&#39; &#39;nantinya&#39; &#39;negeri&#39;
+ &#39;nofryansyah&#39; &#39;nurpatria&#39; &#39;obstruction&#39; &#39;of&#39; &#39;oj&#39; &#39;oktober&#39; &#39;orang&#39;
+ &#39;pada&#39; &#39;para&#39; &#39;pembunuhan&#39; &#39;pengadilan&#39; &#39;penyidik&#39; &#39;penyidikan&#39;
+ &#39;persidangan&#39; &#39;pidana&#39; &#39;pn&#39; &#39;polri&#39; &#39;putranto&#39; &#39;putri&#39; &#39;rabu&#39; &#39;rahkan&#39;
+ &#39;rahman&#39; &#39;richard&#39; &#39;ricky&#39; &#39;rizal&#39; &#39;ruf&#39; &#39;sam&#39; &#39;sambo&#39; &#39;sebanyak&#39;
+ &#39;selatan&#39; &#39;sidang&#39; &#39;telah&#39; &#39;terha&#39; &#39;terkait&#39; &#39;tersangka&#39; &#39;tersebut&#39;
+ &#39;umum&#39; &#39;untuk&#39; &#39;waktu&#39; &#39;wibowo&#39; &#39;widyanto&#39; &#39;yakni&#39; &#39;yang&#39; &#39;yoshua&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">cv_matrix</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">toarray</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.13494728 0.         0.
+  0.         0.         0.18659937 0.37319875 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.26989457 0.         0.
+  0.         0.         0.13494728 0.         0.37319875 0.31276968
+  0.18659937 0.         0.15638484 0.         0.         0.13494728
+  0.         0.         0.         0.         0.         0.
+  0.18659937 0.         0.         0.         0.         0.18659937
+  0.         0.         0.         0.         0.         0.15638484
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.15638484 0.
+  0.         0.18659937 0.         0.18659937 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.31276968 0.         0.15638484
+  0.13494728 0.15638484 0.         0.15638484 0.         0.
+  0.         0.15638484 0.         0.         0.         0.
+  0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.27922514 0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.24094838 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.27922514 0.         0.27922514 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.27922514 0.24094838 0.         0.         0.
+  0.         0.         0.         0.         0.         0.24094838
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.27922514 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.33317319 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.24094838 0.         0.         0.27922514 0.         0.
+  0.33317319 0.         0.         0.         0.         0.
+  0.         0.27922514]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.23914382 0.         0.23914382
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.23914382 0.         0.20042118 0.         0.         0.23914382
+  0.23914382 0.         0.         0.         0.         0.
+  0.23914382 0.         0.17294704 0.         0.         0.20042118
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.23914382 0.
+  0.         0.         0.         0.         0.23914382 0.20042118
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.23914382 0.         0.20042118 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.20042118
+  0.17294704 0.         0.23914382 0.         0.17294704 0.
+  0.         0.20042118 0.23914382 0.         0.         0.
+  0.20042118 0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.40757678 0.         0.         0.         0.         0.
+  0.2947565  0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.2947565  0.34158115 0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.40757678 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.2947565  0.2947565  0.34158115 0.
+  0.         0.         0.         0.2947565  0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.        ]
+ [0.21573757 0.21573757 0.         0.21573757 0.         0.
+  0.         0.18080492 0.         0.         0.21573757 0.
+  0.         0.         0.21573757 0.         0.         0.
+  0.         0.         0.         0.15601981 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.18080492 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.18080492 0.         0.         0.         0.
+  0.         0.         0.         0.21573757 0.21573757 0.15601981
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.21573757 0.         0.         0.
+  0.18080492 0.         0.         0.         0.         0.21573757
+  0.18080492 0.21573757 0.         0.         0.         0.21573757
+  0.         0.         0.         0.         0.21573757 0.
+  0.         0.21573757 0.21573757 0.         0.         0.
+  0.         0.         0.         0.         0.21573757 0.
+  0.         0.18080492 0.         0.         0.15601981 0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.18080492]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.29375183 0.
+  0.21243915 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.21243915
+  0.         0.29375183 0.         0.29375183 0.         0.
+  0.         0.29375183 0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.21243915 0.         0.         0.         0.
+  0.21243915 0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.29375183 0.         0.         0.         0.
+  0.         0.         0.21243915 0.21243915 0.24618696 0.
+  0.24618696 0.         0.         0.21243915 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.29375183
+  0.         0.         0.         0.         0.         0.21243915
+  0.         0.        ]
+ [0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.16794473 0.23222684 0.         0.         0.         0.23222684
+  0.23222684 0.         0.         0.         0.23222684 0.16794473
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.23222684 0.16794473 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.16794473 0.         0.         0.23222684 0.         0.
+  0.         0.23222684 0.23222684 0.         0.         0.
+  0.         0.         0.         0.23222684 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.16794473 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.23222684 0.         0.         0.         0.23222684 0.23222684
+  0.23222684 0.23222684 0.         0.19462421 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.         0.         0.16794473
+  0.19462421 0.        ]
+ [0.         0.         0.17359421 0.         0.17359421 0.17359421
+  0.17359421 0.         0.17359421 0.17359421 0.         0.17359421
+  0.         0.17359421 0.         0.         0.         0.
+  0.         0.         0.17359421 0.         0.17359421 0.
+  0.         0.17359421 0.         0.         0.         0.12554205
+  0.         0.         0.         0.         0.         0.
+  0.         0.         0.         0.12554205 0.17359421 0.17359421
+  0.         0.         0.         0.17359421 0.         0.
+  0.         0.12554205 0.         0.         0.         0.
+  0.12554205 0.17359421 0.34718842 0.         0.17359421 0.17359421
+  0.         0.         0.         0.         0.         0.
+  0.17359421 0.         0.         0.         0.         0.
+  0.         0.17359421 0.12554205 0.12554205 0.         0.
+  0.         0.         0.         0.         0.         0.
+  0.17359421 0.         0.         0.         0.         0.17359421
+  0.         0.         0.         0.17359421 0.         0.
+  0.         0.         0.17359421 0.         0.         0.
+  0.         0.         0.         0.         0.12554205 0.
+  0.         0.         0.         0.17359421 0.17359421 0.12554205
+  0.         0.        ]]
+&lt;bound method _cs_matrix.toarray of &lt;116x8 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 162 stored elements in Compressed Sparse Column format&gt;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal_matrix</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(8, 116)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_graph</span> <span class="o">=</span> <span class="n">normal_matrix</span> <span class="o">*</span> <span class="n">normal_matrix</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_graph</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1.         0.1737279  0.23473447 0.05341811 0.07038405 0.
+  0.10619992 0.03388312]
+ [0.1737279  1.         0.13930525 0.         0.32761184 0.
+  0.         0.        ]
+ [0.23473447 0.13930525 1.         0.         0.02698316 0.
+  0.03900681 0.02171212]
+ [0.05341811 0.         0.         1.         0.         0.39718193
+  0.0990056  0.111013  ]
+ [0.07038405 0.32761184 0.02698316 0.         1.         0.04451181
+  0.         0.01958705]
+ [0.         0.         0.         0.39718193 0.04451181 1.
+  0.17839017 0.16002027]
+ [0.10619992 0.         0.03900681 0.0990056  0.         0.17839017
+  1.         0.0843365 ]
+ [0.03388312 0.         0.02171212 0.111013   0.01958705 0.16002027
+  0.0843365  1.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  (0, 7)	0.033883116821244785
+  (0, 3)	0.05341811280769133
+  (0, 6)	0.10619992206232533
+  (0, 4)	0.07038404963845986
+  (0, 1)	0.17372789999043323
+  (0, 2)	0.23473447212134768
+  (0, 0)	0.9999999999999999
+  (1, 2)	0.1393052505653802
+  (1, 0)	0.17372789999043323
+  (1, 4)	0.32761184463517334
+  (1, 1)	0.9999999999999992
+  (2, 1)	0.1393052505653802
+  (2, 7)	0.02171212494394941
+  (2, 4)	0.026983164456506885
+  (2, 0)	0.23473447212134768
+  (2, 6)	0.03900681475729844
+  (2, 2)	1.0000000000000002
+  (3, 0)	0.05341811280769133
+  (3, 7)	0.11101300469097919
+  (3, 6)	0.09900560089828983
+  (3, 5)	0.3971819263386378
+  (3, 3)	1.0
+  (4, 5)	0.04451181460944157
+  (4, 0)	0.07038404963845986
+  (4, 7)	0.019587046886994974
+  (4, 2)	0.026983164456506885
+  (4, 4)	1.0000000000000002
+  (4, 1)	0.32761184463517334
+  (5, 4)	0.04451181460944157
+  (5, 3)	0.3971819263386378
+  (5, 7)	0.1600202727348439
+  (5, 6)	0.1783901726437644
+  (5, 5)	1.0000000000000002
+  (6, 3)	0.09900560089828983
+  (6, 0)	0.10619992206232533
+  (6, 7)	0.08433649910250564
+  (6, 5)	0.1783901726437644
+  (6, 6)	1.0000000000000002
+  (6, 2)	0.03900681475729844
+  (7, 0)	0.033883116821244785
+  (7, 3)	0.11101300469097919
+  (7, 4)	0.019587046886994974
+  (7, 2)	0.02171212494394941
+  (7, 7)	0.9999999999999994
+  (7, 6)	0.08433649910250564
+  (7, 5)	0.1600202727348439
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx_graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">from_scipy_sparse_matrix</span><span class="p">(</span><span class="n">res_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw_circular</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">,</span><span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/tugaspagerank_26_0.png" src="_images/tugaspagerank_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Banyaknya sisi </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx_graph</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">()))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Banyaknya node </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nx_graph</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banyaknya sisi 27
+Banyaknya node 8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span>
+<span class="n">A</span><span class="o">=</span><span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(</span><span class="n">normal_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cv_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;8x116 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 162 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sidang pidana umum ini diketahui terkait dengan 
+kematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranks</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">nx_graph</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ranks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 0.13116781831094287
+1 0.12951793040181
+2 0.11886055287258798
+3 0.12795815367758823
+4 0.12007346381249615
+5 0.13583713031500844
+6 0.12022649645096849
+7 0.1163584541585979
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ranked_sentences</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(((</span><span class="n">ranks</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sentences_list</span><span class="p">)),</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ranked_sentences</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0.13583713031500844,
+  &#39;Dari belasan orang tersebut, dibagi menjadi dua kluster yakni pembunuhan \nberencana dan  Obstruction of Justice  (OJ) .&#39;),
+ (0.13116781831094287,
+  &#39;Ini Jadwal Sidang Ferdy Sambo Cs Terkait Kasus Kematian Brigadir J . \nLiputan6.com, Jakarta - Pengadilan Negeri Jakarta Selatan (PN Jaksel) telah mengatur jadwal \npersidangan untuk  Ferdy Sambo  Cs.&#39;),
+ (0.12951793040181,
+  &#39;Sidang pidana umum ini diketahui terkait dengan \nkematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.&#39;),
+ (0.12795815367758823,
+  &#39;Baik \nkasus  pembunuhan berencana  maupun  Obstruction of Justice  (OJ).&#39;),
+ (0.12022649645096849,
+  &#39;Mereka yang masuk dalam kluster pembunuhan berencana yakni Ferdy Sambo, Putri \nCandrawathi, Bripka Ricky Rizal, Bharada Richard Elieze dan Kuat Ma’ruf.&#39;),
+ (0.12007346381249615,
+  &#39;Diketahui, Penyidik Bareskrim Polri telah menye rahkan sebanyak 11 orang tersangka atas \nkematian Brigadir J alias Nofryansyah Yoshua Hutabarat, ke Kejaksaan Agung, pada Rabu 5 \nOktober 2022.&#39;),
+ (0.11886055287258798,
+  &#39;Humas Pengadilan Negeri Jakarta Selatan Djumyanto mengatakan, untuk sidang terha dap \npara tersangka ini nantinya dilakukan dengan waktu yang berbeda -beda.&#39;),
+ (0.1163584541585979,
+  &#39;Adapun tersangka lain kluster  Obstruction of Justice  atau menghalang -halangi penyidikan \nyakni Ferdy Sam bo, Brigjen Hendra Kurniawan, Kombes Agus Nurpatria, AKBP Arif Rahman \nArifin, Kompol Chuck Putranto, Kompol Baiquni Wibowo dan AKP Irfan Widyanto.&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extract top 10 sentences as the summary</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">ranked_sentences</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+Dari belasan orang tersebut, dibagi menjadi dua kluster yakni pembunuhan 
+berencana dan  Obstruction of Justice  (OJ) .
+1
+Ini Jadwal Sidang Ferdy Sambo Cs Terkait Kasus Kematian Brigadir J . 
+Liputan6.com, Jakarta - Pengadilan Negeri Jakarta Selatan (PN Jaksel) telah mengatur jadwal 
+persidangan untuk  Ferdy Sambo  Cs.
+2
+Sidang pidana umum ini diketahui terkait dengan 
+kematian  Brigadir J  alias Nofryansyah Yoshua Hutabarat.
+3
+Baik 
+kasus  pembunuhan berencana  maupun  Obstruction of Justice  (OJ).
+4
+Mereka yang masuk dalam kluster pembunuhan berencana yakni Ferdy Sambo, Putri 
+Candrawathi, Bripka Ricky Rizal, Bharada Richard Elieze dan Kuat Ma’ruf.
+5
+Diketahui, Penyidik Bareskrim Polri telah menye rahkan sebanyak 11 orang tersangka atas 
+kematian Brigadir J alias Nofryansyah Yoshua Hutabarat, ke Kejaksaan Agung, pada Rabu 5 
+Oktober 2022.
+6
+Humas Pengadilan Negeri Jakarta Selatan Djumyanto mengatakan, untuk sidang terha dap 
+para tersangka ini nantinya dilakukan dengan waktu yang berbeda -beda.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Library yang digunakan<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="notebooks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><strong>Tugas Mining Data Twitter</strong></p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By By Azriel Akbar Hasananda Putra<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
