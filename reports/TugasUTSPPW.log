@@ -17,12 +17,20 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#Menginstall Library yang diperlukan
-%%capture
-!pip install numpy #Library untuk Proses Case Folding
-!pip install pandas #Library untuk Proses Case Folding
+import numpy as np
+import PyPDF2
+import docx2txt
+import sys
+pdfFileObj = open('DokumenBerita.pdf', 'rb')
 ------------------
 
-
-UsageError: Line magic function `%%capture` not found.
+[0;31m[0m
+[0;31mFileNotFoundError[0mTraceback (most recent call last)
+[0;32m<ipython-input-28-56c7fd5c065e>[0m in [0;36m<module>[0;34m[0m
+[1;32m      3[0m [0;32mimport[0m [0mdocx2txt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0;32mimport[0m [0msys[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 5[0;31m [0mpdfFileObj[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'DokumenBerita.pdf'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'DokumenBerita.pdf'
+FileNotFoundError: [Errno 2] No such file or directory: 'DokumenBerita.pdf'
 
