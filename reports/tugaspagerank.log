@@ -17,14 +17,12 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-pdfFileObj = open('DokumenBerita.pdf', 'rb')
+#Menginstall Library yang diperlukan
+%%capture
+!pip install numpy #Library untuk Proses Case Folding
+!pip install pandas #Library untuk Proses Case Folding
 ------------------
 
-[0;31m[0m
-[0;31mFileNotFoundError[0mTraceback (most recent call last)
-[0;32m<ipython-input-4-5600f298b415>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0mpdfFileObj[0m [0;34m=[0m [0mopen[0m[0;34m([0m[0;34m'DokumenBerita.pdf'[0m[0;34m,[0m [0;34m'rb'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'DokumenBerita.pdf'
-FileNotFoundError: [Errno 2] No such file or directory: 'DokumenBerita.pdf'
+
+UsageError: Line magic function `%%capture` not found.
 
