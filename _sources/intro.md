@@ -7,7 +7,7 @@
 :width: 300px
 :align: center
 ```
-```{admonition} Biodata Penulis
+```{note} Biodata Penulis
 ```{list-table}
 * - Nama
   - Azriel Akbar Hasananda Putra
@@ -23,7 +23,7 @@
 
 
 
-```{admonition} Informasi Mengenai Buku
+```{important} Informasi Mengenai Buku
 Buku atau halaman ini merupakan sarana yang dibuat dengan tujuan sebagai media pembelajaran dan pengumpulan tugas, khususnya terkait mata kuliah Pencarian & Penambangan Web Teknik Informatika Universitas Trunojoyo Madura 2022/2023. 
 ```
 
